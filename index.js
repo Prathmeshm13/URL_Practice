@@ -3,6 +3,7 @@ const app=express();
 const PORT=8000;
 const path=require("path");
 const userroute=require("./routes/user")
+const urlroute=require("./routes/url")
 const connecttomongo=require("./connect")
 app.use(express.json())
 app.use(express.urlencoded({extended:false}))
@@ -16,4 +17,11 @@ app.set("views",path.resolve("./views"));
 app.listen(PORT,()=>{
     console.log("Port started")
 })
+app.get("/signup",(req,res)=>{
+    res.render("signup");
+})
+app.get("/",(req,res)=>{
+    res.render("static")
+})
 app.use("/user",userroute);
+app.use("/url",urlroute);
