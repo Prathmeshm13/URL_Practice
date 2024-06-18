@@ -1,6 +1,6 @@
 const express=require("express");
 const router=express.Router();
-const {genuser}=require("../controllers/user")
+const {genuser, handlelogin}=require("../controllers/user")
 router.post("/signup",genuser)
-
+router.post("/login",handlelogin);
 module.exports=router;
